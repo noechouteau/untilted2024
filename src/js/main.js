@@ -75,13 +75,15 @@ const initImages = () => {
                     if(j < 5) {
                         newImg.src = '../../assets/journal/journal'+(i+1)+'/journal'+(i+1)+'-0' + j + '.png';
                     } else {
-                        
+                        let randBoule = Math.floor(Math.random() * 3) + 1;
+                        console.log(randBoule);
+                        newImg.src = '../../assets/journal/BoulettesFinales/boulette-'+randBoule + '.png';
                     }
                 }, j*150);
             }
             gsap.to(newImg, {
                 duration: 1,
-                scale: 0.7,
+                scale: 1,
                 zIndex: 9,
                 ease: 'power2.inOut',
             }).then(()=>{
@@ -104,7 +106,7 @@ const initImages = () => {
                     },
                     // x: window.innerWidth - 40,
                     // y: window.innerHeight-120 ,
-                    ease: 'power2.inOut',
+                    ease: "power1.inOut",
                 })
                 // .then(()=>{
                 //     newImg.style.display = 'none';
