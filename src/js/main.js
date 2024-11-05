@@ -1,10 +1,20 @@
 import { animJournaux } from "./journalAnim.js";
 
+let collageWrapper = document.getElementById('collage-wrapper');
+let pcWrapper = document.getElementById('pc-wrapper');
+
 let introVideo = document.getElementById('introVideo');
 let introLoop = document.getElementById('introLoop');
 let ordiImage = document.getElementById('ordiImage');
 let bin = document.getElementById('bin');
 let bin2 = document.getElementById('bin2');
+
+let clickedJournaux = 0;
+
+let mondeOnglet = document.getElementById('mondeOnglet');
+let afpOnglet = document.getElementById('afpOnglet');
+let redditOnglet = document.getElementById('redditOnglet');
+let twitterOnglet = document.getElementById('twitterOnglet');
 
 console.log(introVideo);
 
@@ -108,17 +118,18 @@ const initImages = () => {
                     // y: window.innerHeight-120 ,
                     ease: "power1.inOut",
                 })
-                // .then(()=>{
-                //     newImg.style.display = 'none';
-                // });
+                .then(()=>{
+                    clickedJournaux++;
+                    if(clickedJournaux === 15) {
+                        ongletsAnim();
+                    }
+                });
             });
         });
         journaux.push(newImg);
         imgWrapper.appendChild(newImg);
     }
 }
-
-let journauxEnd = false;
 
 const animate = () => {
     console.log('animate');
@@ -140,9 +151,37 @@ const animate = () => {
             opacity: 1,
             ease: 'power2.inOut',
         });
-
     }, 5500);
     console.log(journaux[15])
+}
+
+
+const ongletsAnim = () => {
+    collageWrapper.style.pointerEvents = 'none';
+    pcWrapper.style.pointerEvents = 'auto';
+    pcWrapper.style.display = 'block';
+
+    gsap.to(mondeOnglet, {
+        duration: 1,
+        scale: 1,
+        ease: 'power2.inOut',
+    });
+    gsap.to(twitterOnglet, {
+        duration: 1,
+        scale: 1,
+        ease: 'power2.inOut',
+    }).delay(0.5);
+    gsap.to(afpOnglet, {
+        duration: 1,
+        scale: 1,
+        ease: 'power2.inOut',
+    }).delay(0.7);
+    gsap.to(redditOnglet, {
+        duration: 1,
+        scale: 1,
+        ease: 'power2.inOut',
+    }).delay(1.2);
+
 }
 
 

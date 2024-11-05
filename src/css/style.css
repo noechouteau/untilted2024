@@ -48,6 +48,12 @@ body, * {
     top: 0;
 }
 
+#pc-wrapper{
+    display: none;
+}
+
+
+
 #bin, #bin2 {
     position: absolute;
     z-index: 8;
@@ -64,23 +70,60 @@ body, * {
     z-index: 10;
 }
 
+#mondeOnglet{
+  top: 10%;
+  left: 7%;
+  width: 35vw;
+  scale: 0;
+}
+
+#twitterOnglet{
+  top: 5%;
+  right: 3%;
+  width: 35vw;
+  width: 35vw;
+  scale: 0;
+}
+
+#redditOnglet{
+  top: 40%;
+  left: 15%;
+  width: 45vw;
+  scale: 0;
+}
+
+#afpOnglet{
+  top: 20%;
+  width: 40vw;
+  right: 15%;
+  scale: 0;
+}
 
 /**Mac **/
+
+
 .overcard {
     display: block;
-    width: 305px;
-    height: 30px;
     background: lightgrey;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     text-align:center;
+    overflow: visible;
     position: absolute;
     z-index: 5;
+  }
+
+  .overcard img {
+    z-index: 5;
+    position: absolute;
+    display: block;
+    width: 100%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
   }
   
   .card {
     position: relative;
-    width: 300px;
     height: auto;
     background: transparent;
     overflow: hidden;
@@ -95,7 +138,7 @@ body, * {
   }
   
   .circles {
-    width: 25%;
+    width: 73px;
     gap: 8px;
     padding: 10px;
   }
@@ -112,7 +155,7 @@ body, * {
   }
 
   .c:first-child:hover {
-    background-color: rgb(248, 58, 58);
+    background-color: #fc6e6e;
     cursor: pointer;
   }
   
