@@ -29,7 +29,7 @@ body, * {
     top: 0;
 }
 
-#bin{
+#bin, #bin2 {
     position: absolute;
     z-index: 8;
     bottom: 0;
@@ -38,15 +38,9 @@ body, * {
     height: 90px;
     justify-content: center;
     align-items: center;
+    opacity: 0;
 }
 
 #bin2{
-    position: absolute;
     z-index: 10;
-    bottom: 0;
-    right: 0;
-    width: 90px;
-    height: 90px;
-    justify-content: center;
-    align-items: center;
 }

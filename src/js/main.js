@@ -4,6 +4,7 @@ let introVideo = document.getElementById('introVideo');
 let introLoop = document.getElementById('introLoop');
 let ordiImage = document.getElementById('ordiImage');
 let bin = document.getElementById('bin');
+let bin2 = document.getElementById('bin2');
 
 console.log(introVideo);
 
@@ -84,30 +85,30 @@ const initImages = () => {
                 zIndex: 9,
                 ease: 'power2.inOut',
             }).then(()=>{
+                const distance = Math.sqrt(Math.pow(window.innerWidth - 40 - newImg.getBoundingClientRect().x, 2) + 
+                Math.pow(window.innerHeight - 120 - newImg.getBoundingClientRect().y, 2));
+                console.log(distance);
+                const duration = distance * 250;
                 gsap.to(newImg, {
-                    duration: 1,
-                    // motionPath: {
-                    //     path: [
-                    //         { x: newImg.x, y: newImg.y }, // Point de départ
-                    //         { x: window.innerWidth - 15, y: window.innerHeight - 40 },
-                    //         { x: window.innerWidth - 30, y: window.innerHeight - 80 },
-                    //         { x: window.innerWidth - 40, y: window.innerHeight - 120 } // Point d'arrivée
-                    //     ],
-                    //     type: 'cubic',
-                    //     curviness: 1.5,
-                    // },
-                    x: window.innerWidth - 40,
-                    y: window.innerHeight-120 ,
+                    duration : 1,
+                    motionPath: {
+                        path: [
+                            // { x: newImg.getBoundingClientRect().x, y: newImg.getBoundingClientRect().y },
+                            {
+                                x: ((newImg.getBoundingClientRect().x + (window.innerWidth - 40)) / 2), // Mi-chemin en X
+                                y: Math.max(((newImg.getBoundingClientRect().y + (window.innerHeight - 120)) / 2) - distance/3, 10) // Mi-chemin en Y
+                            },
+                            { x: window.innerWidth - 40, y: window.innerHeight - 120 }
+                        ],
+                        curviness:1.2,
+                    },
+                    // x: window.innerWidth - 40,
+                    // y: window.innerHeight-120 ,
                     ease: 'power2.inOut',
                 })
                 // .then(()=>{
                 //     newImg.style.display = 'none';
                 // });
-                if(bin.src.includes('Empty')) {
-                    setTimeout(function() {
-                        bin.src = '../../assets/ordi/binFull.png';
-                    }, 700);
-                }
             });
         });
         journaux.push(newImg);
@@ -127,6 +128,16 @@ const animate = () => {
         imgWrapper.style.pointerEvents = 'auto';
         introLoop.style.display = 'none';
         ordiImage.style.display = 'block';
+        gsap.to(bin, {
+            duration: 1,
+            opacity: 1,
+            ease: 'power2.inOut',
+        });
+        gsap.to(bin2, {
+            duration: 1,
+            opacity: 1,
+            ease: 'power2.inOut',
+        });
 
     }, 5500);
     console.log(journaux[15])
