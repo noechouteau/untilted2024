@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Calque_3" data-name="Calque 3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 250 300">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#Dégradé_sans_nom_32);
+      }
+
+      .cls-2 {
+        fill: url(#Dégradé_sans_nom_37);
+      }
+
+      .cls-3 {
+        fill: url(#Dégradé_sans_nom_24);
+      }
+    </style>
+    <linearGradient id="Dégradé_sans_nom_32" data-name="Dégradé sans nom 32" x1="45.37" y1="224.24" x2="204.63" y2="224.24" gradientUnits="userSpaceOnUse">
+      <stop offset=".03" stop-color="#c8c8c8"/>
+      <stop offset=".28" stop-color="#454545"/>
+      <stop offset=".64" stop-color="#c2c2c2"/>
+      <stop offset=".74" stop-color="#bbb"/>
+      <stop offset=".89" stop-color="#a9a9a9"/>
+      <stop offset="1" stop-color="#989898"/>
+    </linearGradient>
+    <linearGradient id="Dégradé_sans_nom_24" data-name="Dégradé sans nom 24" x1="21.86" y1="127.58" x2="228.14" y2="127.58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5d6265"/>
+      <stop offset=".5" stop-color="#9da3a5"/>
+      <stop offset="1" stop-color="#5f6466"/>
+    </linearGradient>
+    <linearGradient id="Dégradé_sans_nom_37" data-name="Dégradé sans nom 37" x1="116.27" y1="215.4" x2="149.55" y2="340.66" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset=".59" stop-color="#3a3a3a"/>
+    </linearGradient>
+  </defs>
+  <path class="cls-1" d="M204.63,229.5l-.48,3.81-2.28,18.11h-5.34c.43-1.03.65-2.09.65-3.16,0-1.33-.34-2.64-.99-3.91-5.7-11.16-35.4-19.66-71.19-19.66s-65.48,8.5-71.18,19.66c-.65,1.27-.99,2.58-.99,3.91,0,1.07.22,2.13.65,3.16h-5.35l-2.26-18.04-.5-3.94c.34-17.91,35.86-32.38,79.63-32.38s79.37,14.5,79.63,32.44Z"/>
+  <path class="cls-3" d="M228.14,42.51l-.06.58v.05s-.02.04-.02.04l-23.44,186.32c-.26-17.94-35.8-32.44-79.63-32.44s-79.29,14.47-79.63,32.38L21.94,43.18v-.04s-.02-.05-.02-.05l-.06-.58c0-9.3,46.18-16.85,103.14-16.85s103.15,7.55,103.15,16.85Z"/>
+  <path class="cls-2" d="M197.18,248.26c0,1.07-.22,2.13-.65,3.16H53.48c-.43-1.03-.65-2.09-.65-3.16,0-1.33.34-2.64.99-3.91,5.7-11.16,35.4-19.66,71.18-19.66s65.49,8.5,71.19,19.66c.65,1.27.99,2.58.99,3.91Z"/>
+</svg>

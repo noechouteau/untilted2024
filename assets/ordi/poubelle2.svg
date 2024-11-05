@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Calque_2" data-name="Calque 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 250 300">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#Dégradé_sans_nom_35);
+        opacity: .67;
+      }
+
+      .cls-2 {
+        fill: url(#Dégradé_sans_nom_40-3);
+      }
+
+      .cls-2, .cls-3, .cls-4 {
+        opacity: .23;
+      }
+
+      .cls-3 {
+        fill: url(#Dégradé_sans_nom_40);
+      }
+
+      .cls-5 {
+        fill: url(#Dégradé_sans_nom_12);
+      }
+
+      .cls-4 {
+        fill: url(#Dégradé_sans_nom_40-2);
+      }
+    </style>
+    <linearGradient id="Dégradé_sans_nom_12" data-name="Dégradé sans nom 12" x1="45.17" y1="254.92" x2="204.82" y2="254.92" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#909090"/>
+      <stop offset=".27" stop-color="#fff"/>
+      <stop offset=".68" stop-color="#464646"/>
+      <stop offset=".97" stop-color="#9b9b9b"/>
+    </linearGradient>
+    <linearGradient id="Dégradé_sans_nom_35" data-name="Dégradé sans nom 35" x1="29.73" y1="146.58" x2="223.74" y2="146.58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity=".67"/>
+      <stop offset=".51" stop-color="#fff"/>
+      <stop offset="1" stop-color="#b4b4b4"/>
+    </linearGradient>
+    <linearGradient id="Dégradé_sans_nom_40" data-name="Dégradé sans nom 40" x1="82.7" y1="221.6" x2="49.39" y2="55.73" gradientUnits="userSpaceOnUse">
+      <stop offset=".15" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".89" stop-color="#fff"/>
+    </linearGradient>
+    <linearGradient id="Dégradé_sans_nom_40-2" data-name="Dégradé sans nom 40" x1="210.48" y1="204.07" x2="156.09" y2="198.71" xlink:href="#Dégradé_sans_nom_40"/>
+    <linearGradient id="Dégradé_sans_nom_40-3" data-name="Dégradé sans nom 40" x1="209.61" y1="165.67" x2="177.88" y2="73.93" xlink:href="#Dégradé_sans_nom_40"/>
+  </defs>
+  <path class="cls-5" d="M204.82,227.95l-3.8,30.17-.11.93c-2.3,12.8-35.4,22.95-75.91,22.95s-73.61-10.15-75.91-22.95l-.11-.93-3.81-30.28c.98,5.59,8.56,10.65,20.46,14.55,14.63,4.78,35.81,7.78,59.37,7.78s44.74-3,59.37-7.78c11.84-3.87,19.39-8.9,20.45-14.44Z"/>
+  <path class="cls-1" d="M228.04,43.38l-23.12,183.74-.1.83c-1.06,5.54-8.61,10.57-20.45,14.44-14.63,4.78-35.81,7.78-59.37,7.78s-44.74-3-59.37-7.78c-11.9-3.9-19.48-8.96-20.46-14.55l-.08-.63L21.9,42.99c1.57,9.09,47.13,16.37,103.11,16.37s100.25-7.08,103.02-15.98Z"/>
+  <path class="cls-3" d="M31.51,56.91l21.31,170.93c7.8,8.05,25.29,11.76,39.71,12.65l-10.21-175.74c-23.52-1.52-35.49-1.45-50.81-7.83Z"/>
+  <path class="cls-4" d="M155.02,169.62l50.93-8.36-9.63,66.58c-9.04,8.05-29.34,11.76-46.08,12.65l4.78-70.87Z"/>
+  <path class="cls-2" d="M221.05,56.91l-11.09,88.04-53.1,10.01,5.23-89.06c27.29-1.75,41.18-1.65,58.96-8.99Z"/>
+</svg>

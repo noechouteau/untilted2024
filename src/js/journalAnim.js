@@ -8,7 +8,7 @@ export function animJournaux(journaux) {
             xPercent: -50,
             transformOrigin: "center center",
             y: -(window.innerHeight/5 - journaux[0].height/2)*12,
-            scale: 4,
+            scale: 4.4,
             rotate: -20,
         }, 
         { 
@@ -16,7 +16,7 @@ export function animJournaux(journaux) {
             xPercent: -50,
             transformOrigin: "center center",
             y: window.innerHeight/5 - journaux[0].height/2,
-            scale: 4,
+            scale: 4.4,
             rotate: 25,
             duration: 1
         }
@@ -69,7 +69,7 @@ export function animJournaux(journaux) {
             rotate: -20,
         }, 
         { 
-            x: "27vw",
+            x: "33vw",
             xPercent: -50,
             transformOrigin: "center center",
             y: window.innerHeight/1.3,
@@ -160,15 +160,15 @@ export function animJournaux(journaux) {
             xPercent: -50,
             transformOrigin: "center center",
             y: -window.innerHeight*2,
-            scale: 4,
+            scale: 4.5,
             rotate: 35,
         }, 
         { 
-            x: "20vw",
+            x: "24vw",
             xPercent: -50,
             transformOrigin: "center center",
             y: window.innerHeight/4,
-            scale: 4,
+            scale: 4.5,
             rotate: 2,
             duration: 1.5
         }
@@ -217,15 +217,15 @@ export function animJournaux(journaux) {
             xPercent: -50,
             transformOrigin: "center center",
             y: -window.innerHeight,
-            scale: 3,
+            scale: 3.6,
             rotate: -85,
         }, 
         { 
-            x: "90vw",
+            x: "87vw",
             xPercent: -50,
             transformOrigin: "center center",
             y: window.innerHeight/6,
-            scale: 3,
+            scale: 3.6,
             rotate: 15,
             duration: 1.5
         }
@@ -297,7 +297,7 @@ export function animJournaux(journaux) {
             rotate: 0,
         }, 
         { 
-            x: "10vw",
+            x: "5vw",
             xPercent: -50,
             transformOrigin: "center center",
             y: window.innerHeight/4,
