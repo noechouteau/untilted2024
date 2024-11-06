@@ -70,6 +70,19 @@ for (const element of assets) {
     }
 }
 
+let introMusic = new Audio('../../assets/intro/introMusic.mp3');
+let neonLoop = new Audio('../../assets/intro/neonbuzzloop.wav');
+neonLoop.loop = true;
+neonLoop.volume = 0;
+
+const startAnim = () => {
+    document.getElementById('introVideo').play()
+    introMusic.volume = 0.1;
+    introMusic.play();
+    neonLoop.play();
+
+}
+
 introVideo.onended = function() {
     introLoop.style.display = 'block';
     introVideo.style.display = 'none';
@@ -93,6 +106,22 @@ const initImages = () => {
         newImg.style.top = 0
         newImg.addEventListener('click', function() {
             newImg.style.pointerEvents = 'none';
+            let randSon = Math.floor(Math.random() * 2) + 1;
+            let journalSon = new Audio('../../assets/journal/sons/journalSon-'+randSon+'.wav');
+            journalSon.volume = 0.5;
+            if(randSon === 3) {
+                journalSon.volume = 0.2;
+            }
+            journalSon.play();
+            gsap.to(introMusic, {
+                duration: 1,
+                volume: introMusic.volume - 0.00666666666,
+            })
+            gsap.to(neonLoop, {
+                duration: 1,
+                volume: neonLoop.volume + 0.002,
+            })
+
             for(let j = 0; j < 7; j++) {
                 setTimeout(function() {
                     if(j < 5) {
@@ -113,7 +142,6 @@ const initImages = () => {
                 const distance = Math.sqrt(Math.pow(window.innerWidth - 40 - newImg.getBoundingClientRect().x, 2) + 
                 Math.pow(window.innerHeight - 120 - newImg.getBoundingClientRect().y, 2));
                 console.log(distance);
-                const duration = distance * 250;
                 gsap.to(newImg, {
                     duration : 1,
                     motionPath: {
@@ -135,6 +163,10 @@ const initImages = () => {
                     clickedJournaux++;
                     if(clickedJournaux === 16) {
                         ongletsAnim(collageWrapper, pcWrapper, mondeOnglet, hugoOnglet, twitterOnglet, afpOnglet, redditOnglet, bfmOnglet, ukraineOnglet);
+                        gsap.to(introMusic, {
+                            duration: 1,
+                            volume: 0,
+                        })
                     }
                 });
             });
@@ -201,5 +233,6 @@ const callTeleTransition = () => {
     teleTransition(onglets, chosenOnglet, bin, bin2, journaux, ordiImage, zappingVideo, powerButton );
 }
 
+window.startAnim = startAnim;
 window.closeOnglet = closeOnglet;
 window.callTeleTransition = callTeleTransition;
