@@ -10,11 +10,13 @@ let bin = document.getElementById('bin');
 let bin2 = document.getElementById('bin2');
 
 let clickedJournaux = 0;
+let closedOnglets = 0;
 
 let mondeOnglet = document.getElementById('mondeOnglet');
 let afpOnglet = document.getElementById('afpOnglet');
 let redditOnglet = document.getElementById('redditOnglet');
 let twitterOnglet = document.getElementById('twitterOnglet');
+let errorOnglet = document.getElementById('errorOnglet');
 
 console.log(introVideo);
 
@@ -120,7 +122,7 @@ const initImages = () => {
                 })
                 .then(()=>{
                     clickedJournaux++;
-                    if(clickedJournaux === 15) {
+                    if(clickedJournaux === 16) {
                         ongletsAnim();
                     }
                 });
@@ -181,7 +183,26 @@ const ongletsAnim = () => {
         scale: 1,
         ease: 'power2.inOut',
     }).delay(1.2);
+}
+
+const closeOnglet = (onglet) => {
+    console.log("test");
+    let closedElement = document.getElementById(onglet);
+    if(closedOnglets === 3) {
+        errorOnglet.style.display = 'block';
+        let errorSound = new Audio('../../assets/ordi/macError.mp3');
+        errorSound.play();
+    } else {
+        gsap.to(closedElement, {
+            duration: 0.7,
+            scale: 0,
+            ease: 'back.in(1.4)',
+        }).then(()=>{
+            closedOnglets++;
+        });
+    }
 
 }
 
+window.closeOnglet = closeOnglet;
 

@@ -49,7 +49,7 @@ body, * {
 }
 
 #pc-wrapper{
-    display: none;
+    display: block;
 }
 
 
@@ -103,78 +103,176 @@ body, * {
 
 
 .overcard {
-    display: block;
-    background: lightgrey;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    text-align:center;
-    overflow: visible;
-    position: absolute;
-    z-index: 5;
-  }
+  display: block;
+  background: lightgrey;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  text-align:center;
+  overflow: visible;
+  position: absolute;
+  z-index: 5;
+  box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.25);
+}
 
-  .overcard img {
-    z-index: 5;
-    position: absolute;
-    display: block;
-    width: 100%;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-  }
-  
-  .card {
-    position: relative;
-    height: auto;
-    background: transparent;
-    overflow: hidden;
-    display: flex;
-  }
-  
-  .circles,
-  .browser {
-    height: 30px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .circles {
-    width: 73px;
-    gap: 8px;
-    padding: 10px;
-  }
-  
-  .c {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    box-shadow: inset 2px 2px 5px rgba(235, 235, 235, 0.356);
-  }
-  
-  .c:first-child {
-    background-color: red;
-  }
+.overcard img {
+  z-index: 5;
+  position: absolute;
+  display: block;
+  width: 100%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+    box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.25);
 
-  .c:first-child:hover {
-    background-color: #fc6e6e;
-    cursor: pointer;
-  }
-  
-  .c:nth-child(2) {
-    background-color: rgb(204, 167, 4);
-  }
-  
-  .c:last-child {
-    background-color: green;
-  }
-  
-  .browser {
-    padding: 5px;
-    display: flex;
-    gap: 10px;
-    text-align:center;
-    width: 75%;
-    justify-content: center;
-    color: #232323;
-    font-family: macFontBold;
-    font-size: medium;
-  }
+}
+
+.card {
+  position: relative;
+  height: auto;
+  background: transparent;
+  overflow: hidden;
+  display: flex;
+}
+
+.circles,
+.browser {
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.circles {
+  width: 73px;
+  gap: 8px;
+  padding: 10px;
+}
+
+.c {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  box-shadow: inset 2px 2px 5px rgba(235, 235, 235, 0.356);
+}
+
+.c:first-child {
+  background-color: red;
+}
+
+.c:first-child:hover {
+  background-color: #fc6e6e;
+  cursor: pointer;
+}
+
+.c:nth-child(2) {
+  background-color: rgb(204, 167, 4);
+}
+
+.c:last-child {
+  background-color: green;
+}
+
+.browser {
+  padding: 5px;
+  display: flex;
+  gap: 10px;
+  text-align:center;
+  width: 75%;
+  justify-content: center;
+  color: #232323;
+  font-family: macFontBold;
+  font-size: medium;
+}
+
+
+
+
+.errorCard{
+  position: absolute;
+  display: none;
+  z-index: 25;
+  width: 600px;
+  left: calc(50% - 300px);
+  top: calc(50% - 110px);
+  height: 220px;
+  background: #F6F6F6;
+  font-family: macFont;
+  color : #232323;
+  border-radius: 10px;
+  box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.25);
+
+}
+
+.errorBarre{
+  position: relative;
+  background: #fbfbfb;
+  height: auto;
+  border-top-left-radius:10px;
+  border-top-right-radius:10px;
+  border-bottom: 2px #dddddd solid;
+  overflow: hidden;
+  display: flex;
+}*
+
+#content-text{
+  height: 180px;
+}
+
+.content-error {
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+}
+
+.content-error img {
+  width: 150px;
+  height: 100px;
+  padding-top: 30px;
+  padding-left: 20px
+}
+
+.content-error h1 {
+  font-size: 20px;
+  font-family: macFontBold;
+  padding-left : 20px;
+  padding-top: 30px;
+  padding-right: 25px;
+
+}
+
+.content-error p {
+  font-size: 15px;
+  font-family: macFont;
+  padding-left : 20px;
+  padding-top: 10px;
+  padding-right: 15px;
+}
+
+.content-error button {
+  position: relative;
+  top: 12px;
+  left: 330px;
+  border-radius: 5px;
+  border: none;
+  background: rgb(36,142,255);
+  color: #EAF2FF;
+  margin-left: 10px;;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  transition: 0.3s;
+  font-family: macFont;
+  background: linear-gradient(180deg, rgba(36,142,255,1) 0%, rgba(5,124,254,1) 100%);
+}
+
+.content-error button:hover {
+  cursor: pointer;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.55);
+  transition: 0.3s;
+}
+
+.barre{
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
