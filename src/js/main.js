@@ -1,4 +1,6 @@
 import { animJournaux } from "./journalAnim.js";
+import { ongletsAnim } from "./ordiAnim.js";
+import { teleTransition } from "./teleTransitionAnim.js";
 
 let collageWrapper = document.getElementById('collage-wrapper');
 let pcWrapper = document.getElementById('pc-wrapper');
@@ -19,6 +21,8 @@ let twitterOnglet = document.getElementById('twitterOnglet');
 let hugoOnglet = document.getElementById('hugoOnglet');
 let bfmOnglet = document.getElementById('bfmOnglet');
 let ukraineOnglet = document.getElementById('ukraineOnglet');
+
+let powerButton = document.getElementById('powerButton');
 
 let onglets = [mondeOnglet, afpOnglet, redditOnglet, twitterOnglet, hugoOnglet, bfmOnglet, ukraineOnglet];
 
@@ -130,7 +134,7 @@ const initImages = () => {
                 .then(()=>{
                     clickedJournaux++;
                     if(clickedJournaux === 16) {
-                        ongletsAnim();
+                        ongletsAnim(collageWrapper, pcWrapper, mondeOnglet, hugoOnglet, twitterOnglet, afpOnglet, redditOnglet, bfmOnglet, ukraineOnglet);
                     }
                 });
             });
@@ -164,57 +168,6 @@ const animate = () => {
     console.log(journaux[15])
 }
 
-/** A déplacer quand tous les onglets auront été créés */
-const ongletsAnim = () => {
-    collageWrapper.style.pointerEvents = 'none';
-    pcWrapper.style.pointerEvents = 'auto';
-    pcWrapper.style.display = 'block';
-
-    gsap.to(mondeOnglet, {
-        duration: 1,
-        scale: 1,
-        ease: 'power2.inOut',
-    });
-    gsap.to(hugoOnglet, {
-        duration: 1,
-        scale: 1,
-        ease: 'power2.inOut',
-        onComplete: function() {
-            hugoOnglet.children[1].children[0].play();
-        }
-    }).delay(0.5);
-    gsap.to(twitterOnglet, {
-        duration: 1,
-        scale: 1,
-        ease: 'power2.inOut',
-    }).delay(0.7);
-    gsap.to(afpOnglet, {
-        duration: 1,
-        scale: 1,
-        ease: 'power2.inOut',
-    }).delay(1.2);
-    gsap.to(redditOnglet, {
-        duration: 1,
-        scale: 1,
-        ease: 'power2.inOut',
-    }).delay(1.5);
-    gsap.to(bfmOnglet, {
-        duration: 1,
-        scale: 1,
-        ease: 'power2.inOut',
-        onComplete: function() {
-            bfmOnglet.children[1].play();
-        }
-    }).delay(1.6);
-    gsap.to(ukraineOnglet, {
-        duration: 1,
-        scale: 1,
-        ease: 'power2.inOut',
-        onComplete: function() {
-            ukraineOnglet.children[1].play();
-        }
-    }).delay(1.9);
-}
 
 const closeOnglet = (onglet) => {
     console.log("test");
@@ -244,77 +197,9 @@ const closeOnglet = (onglet) => {
     }
 }
 
-const teleTransition = () => {
-    errorOnglet.style.display = 'none';
-
-    for(const element of onglets) {
-        if(element !== chosenOnglet) {
-            gsap.to(element, {
-                duration: 0.5,
-                scale: 0,
-            }).then(() => {
-                if(element == bfmOnglet) {
-                    bfmOnglet.children[1].pause();
-                } else if(element == ukraineOnglet) {
-                    ukraineOnglet.children[1].pause();
-                }
-                element.style.display = 'none';
-            });
-        }
-    }
-
-    gsap.to(chosenOnglet, {
-        x: window.innerWidth/2 - chosenOnglet.getBoundingClientRect().width/2,
-        y: window.innerHeight/2 - chosenOnglet.children[1].getBoundingClientRect().height/2,
-        top: 0,
-        left: 0,
-        duration: 1,
-    }).then(()=>{
-
-        zappingVideo.style.display = 'block';
-        gsap.to(zappingVideo, {
-            x: window.innerWidth/2 - zappingVideo.getBoundingClientRect().width/2,
-            y: window.innerHeight/2 - zappingVideo.getBoundingClientRect().height/2,
-            duration: 0.01,
-        })
-        // zappingVideo.play();
-
-        gsap.to(bin, {
-            duration: 1,
-            opacity: 0,
-        })
-        gsap.to(bin2, {
-            duration: 1,
-            opacity: 0,
-        });
-        for(const element of journaux) {
-            gsap.to(element, {
-                duration: 1,
-                opacity: 0,
-            });
-        }
-        gsap.to(chosenOnglet.children[1], {
-            width: "1000px",
-            height: "570px",
-            yPercent: -18,
-            xPercent: -19.28,
-            duration: 1,
-        });
-        gsap.to(chosenOnglet.children[1].children[0], {
-            duration: 1,
-            scale: 1.12,
-            top: "-43px",
-        });
-        gsap.to(ordiImage, {
-            duration: 1,
-            scale: 0,
-        }).then(()=>{
-            bin.style.display = 'none';
-            bin2.style.display = 'none';
-            ordiImage.style.display = 'none';
-        });
-    });
+const callTeleTransition = () => {
+    teleTransition(onglets, chosenOnglet, bin, bin2, journaux, ordiImage, zappingVideo, powerButton );
 }
 
 window.closeOnglet = closeOnglet;
-window.teleTransition = teleTransition;
+window.callTeleTransition = callTeleTransition;
