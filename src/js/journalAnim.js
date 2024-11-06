@@ -1,3 +1,5 @@
+import { createSticker } from "./sticker.js";
+
 export function animJournaux(journaux) {
     for(let journal of journaux) {
         journal.style.display = "block";
@@ -151,7 +153,8 @@ export function animJournaux(journaux) {
             y: window.innerHeight/15,
             scale: 3,
             rotate: 2,
-            duration: 1.5
+            duration: 1.5,
+            onComplete : () => {setTimeout(createSticker('trump', journaux[7]), 1500)}
         }
     ).delay(1.5);
     gsap.fromTo(journaux[8],
@@ -227,7 +230,8 @@ export function animJournaux(journaux) {
             y: window.innerHeight/6,
             scale: 3.6,
             rotate: 15,
-            duration: 1.5
+            duration: 1.5,
+            onComplete : () => {setTimeout(createSticker('jo', journaux[11]), 2700)}
         }
     ).delay(2.7);
     gsap.fromTo(journaux[12],
@@ -246,7 +250,8 @@ export function animJournaux(journaux) {
             y: window.innerHeight/2,
             scale: 1.8,
             rotate: -15,
-            duration: 1
+            duration: 1,
+            onComplete : () => {setTimeout(createSticker('delon', journaux[12]), 3000)}
         }
     ).delay(3);
     gsap.fromTo(journaux[13],
