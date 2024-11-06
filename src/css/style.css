@@ -12,6 +12,10 @@ body, * {
     overflow: hidden;
 }
 
+body {
+  background-color: #232323;
+}
+
 #introVideo, #introLoop {
     width: 100vw;
     height: 100vh;

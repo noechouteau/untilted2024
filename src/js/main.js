@@ -17,6 +17,7 @@ let afpOnglet = document.getElementById('afpOnglet');
 let redditOnglet = document.getElementById('redditOnglet');
 let twitterOnglet = document.getElementById('twitterOnglet');
 let errorOnglet = document.getElementById('errorOnglet');
+let chosenOnglet = null;
 
 console.log(introVideo);
 
@@ -157,7 +158,7 @@ const animate = () => {
     console.log(journaux[15])
 }
 
-
+/** A déplacer quand tous les onglets auront été créés */
 const ongletsAnim = () => {
     collageWrapper.style.pointerEvents = 'none';
     pcWrapper.style.pointerEvents = 'auto';
@@ -192,6 +193,7 @@ const closeOnglet = (onglet) => {
         errorOnglet.style.display = 'block';
         let errorSound = new Audio('../../assets/ordi/macError.mp3');
         errorSound.play();
+        chosenOnglet = closedElement;
     } else {
         gsap.to(closedElement, {
             duration: 0.7,
@@ -201,8 +203,47 @@ const closeOnglet = (onglet) => {
             closedOnglets++;
         });
     }
+}
 
+const teleTransition = () => {
+    errorOnglet.style.display = 'none';
+    gsap.to(chosenOnglet, {
+        x: window.innerWidth/2 - chosenOnglet.getBoundingClientRect().width/2,
+        y: window.innerHeight/2 - chosenOnglet.children[1].getBoundingClientRect().height/2,
+        top: 0,
+        left: 0,
+        duration: 1,
+    }).then(()=>{
+        gsap.to(bin, {
+            duration: 1,
+            opacity: 0,
+        })
+        gsap.to(bin2, {
+            duration: 1,
+            opacity: 0,
+        });
+        for(const element of journaux) {
+            gsap.to(element, {
+                duration: 1,
+                opacity: 0,
+            });
+        }
+        gsap.to(chosenOnglet.children[1], {
+            scale: 1.5,
+            y: chosenOnglet.y-25,
+            duration: 1,
+        });
+        gsap.to(ordiImage, {
+            duration: 1,
+            scale: 0,
+        }).then(()=>{
+            bin.style.display = 'none';
+            bin2.style.display = 'none';
+            ordiImage.style.display = 'none';
+            
+        });
+    });
 }
 
 window.closeOnglet = closeOnglet;
-
+window.teleTransition = teleTransition;
