@@ -1,27 +1,81 @@
-export function createSticker(ref, journal) {
+let mesStickersAnimee = [];
+
+export function createSticker(ref, journal, animated, maxframe) {
+    // ref : string 
+    // journal : objet html
+    // animated : boolean
+    // maxframe : int -> nb max frame 
     let stickerWrapper = document.getElementById('stickers-wrapper');
+
+
+    let stickerdiv = document.createElement("div");
+
     let newSticker = document.createElement("img");
     newSticker.draggable = false;
-    newSticker.style.position = 'absolute';
-    newSticker.style.pointerEvents = 'auto';
+   // newSticker.style.position = 'absolute';
+  //  newSticker.style.pointerEvents = 'auto';
     newSticker.zIndex = 10;
 
     let journalSize = journal.getBoundingClientRect()
-    console.log('On Complete Called');
+    newSticker.draggable = false;
+    newSticker.style.position = 'absolute';
+    newSticker.style.pointerEvents = 'auto';
     newSticker.style.top =  (journalSize.top ) + "px"; 
     newSticker.style.left = (journalSize.left ) + "px"; 
+    newSticker.style.zIndex = 11;
 
-    newSticker.src = '../assets/stickers/' + ref + ".png";
+    if(animated){
+        newSticker.src = '../assets/stickers/' + ref + "/1.png";
+        newSticker.maxFrame = maxframe;
+        newSticker.currentFrame =  1;
+        newSticker.refName = ref;
+        mesStickersAnimee.push(newSticker);
+        
+    }else{
+        newSticker.src = '../assets/stickers/' + ref + ".png";
+    }
+    let newStickerOmbre = document.createElement("img");
+    newStickerOmbre.draggable = false;
+    newStickerOmbre.style.position = 'absolute';
+    newStickerOmbre.style.pointerEvents = 'auto';
+    newStickerOmbre.style.zIndex = 10;
+    newStickerOmbre.style.top =  (journalSize.top ) + "px"; 
+    newStickerOmbre.style.left = (journalSize.left ) + "px"; 
+
+    if(animated){ 
+        newStickerOmbre.src = '../assets/stickers/' + ref + "/ombre.png";
+    }else{
+        newStickerOmbre.src =  '../assets/stickers/' + ref + "_ombre.png";
+    }
+
+    gsap.fromTo(newStickerOmbre,
+        { 
+            scale: 0,
+        }, 
+        { 
+            scale: 1,
+            duration: 1.2
+        }
+    );
+   // document.getElementById('ombrage-wrapper').append(newStickerOmbre)
+
+
     gsap.fromTo(newSticker,
         { 
             scale: 0,
         }, 
         { 
-            scale: 0.75,
+            scale: 1,
             duration: 1
         }
     );
-    stickerWrapper.append(newSticker);
+    
+
+
+    //stickerWrapper.append(newSticker);
+    stickerdiv.append(newSticker);
+    stickerdiv.append(newStickerOmbre);
+    stickerWrapper.append(stickerdiv);
     updateSticker();
 }
 
@@ -29,9 +83,12 @@ export function createSticker(ref, journal) {
 function updateSticker(){
     let sizeImg = null;
     let stickerWrapper = document.getElementById('stickers-wrapper');
+    //   onComplete : () => {setTimeout(createSticker('plouf', journaux[8], true, 11), 1900)}
     stickerWrapper.childNodes.forEach( (e,i) => {
         e.addEventListener('mousedown', (event) => { 
-            sizeImg = e.getBoundingClientRect();
+        
+            sizeImg = e.childNodes[0].getBoundingClientRect();
+
             let offsetX = sizeImg.left - event.clientX;
             let offSetY = sizeImg.top - event.clientY;
     
@@ -41,13 +98,57 @@ function updateSticker(){
     
             window.addEventListener('mouseup', () => {
                 window.removeEventListener('mousemove', mouseMoveHandler);
+                gsap.to(stickerWrapper.childNodes[i].childNodes[1], {
+                    scale : 0.8,
+                    duration : 1
+                })
             });               
         })
-    });
+    }); 
+  
 }
+let currentIndex = 10;
 
 function followImg(ev, offsetX, offSetY, index){
-    let stickerWrapper = document.getElementById('stickers-wrapper');
-    stickerWrapper.childNodes[index].style.top = (ev.clientY + offSetY)+ "px"
-    stickerWrapper.childNodes[index].style.left = (ev.clientX + offsetX) + "px"
+    currentIndex = currentIndex + 2;
+    let stickerWrapper = document.getElementById('stickers-wrapper').childNodes[index];
+
+
+    stickerWrapper.childNodes[0].style.top = (ev.clientY + offSetY)+ "px"
+    stickerWrapper.childNodes[0].style.left = (ev.clientX + offsetX) + "px"
+
+    stickerWrapper.childNodes[1].style.top = (ev.clientY + offSetY)+ "px"
+    stickerWrapper.childNodes[1].style.left =  (ev.clientX + offsetX) + "px"
+
+    stickerWrapper.childNodes[0].style.zIndex = currentIndex;
+    stickerWrapper.childNodes[1].style.zIndex = currentIndex - 1;
+
+    gsap.to(stickerWrapper.childNodes[1], {
+        scale : 1.1,
+        duration : 1
+    })
+
 }
+
+let frame = 0;
+
+function animationSticker(){
+    frame = frame + 1;
+
+    if(frame%10 == 0){
+        for(let sticker of mesStickersAnimee){
+            if(sticker.currentFrame < sticker.maxFrame){
+                sticker.currentFrame =  sticker.currentFrame + 1;
+            }else{
+                sticker.currentFrame = 1;
+            }
+            sticker.src = '../assets/stickers/' + sticker.refName + "/" + sticker.currentFrame  + ".png";
+        }
+    }
+    
+    window.requestAnimationFrame(animationSticker);
+}
+
+window.requestAnimationFrame(animationSticker);
+
+
