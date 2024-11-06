@@ -85,7 +85,6 @@ body {
   top: 5%;
   right: 3%;
   width: 35vw;
-  width: 35vw;
   scale: 0;
 }
 
@@ -100,6 +99,27 @@ body {
   top: 20%;
   width: 40vw;
   right: 15%;
+  scale: 0;
+}
+
+#hugoOnglet{
+  top: 27%;
+  width: 40vw;
+  right: 7%;
+  scale: 0;
+}
+
+#bfmOnglet{
+  top: 30%;
+  width: 40vw;
+  left: 3%;
+  scale: 0;
+}
+
+#ukraineOnglet{
+  top: 35%;
+  width: 40vw;
+  right: 8%;
   scale: 0;
 }
 
@@ -118,15 +138,18 @@ body {
   box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.25);
 }
 
-.overcard img {
+.overcard img, .overcard video, #hugoContainer {
   z-index: 5;
   position: absolute;
   display: block;
   width: 100%;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-    box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.25);
+}
 
+#hugoContainer video{
+  position: relative;
 }
 
 .card {
@@ -279,4 +302,10 @@ body {
   height: 30px;
   display: flex;
   align-items: center;
+}
+
+#zappingVideo{
+  display: none;
+  width: 1000px;
+  position: absolute;
 }

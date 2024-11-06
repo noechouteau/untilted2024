@@ -5,17 +5,23 @@ let pcWrapper = document.getElementById('pc-wrapper');
 
 let introVideo = document.getElementById('introVideo');
 let introLoop = document.getElementById('introLoop');
+let zappingVideo = document.getElementById('zappingVideo');
 let ordiImage = document.getElementById('ordiImage');
 let bin = document.getElementById('bin');
 let bin2 = document.getElementById('bin2');
 
 let clickedJournaux = 0;
-let closedOnglets = 0;
 
 let mondeOnglet = document.getElementById('mondeOnglet');
 let afpOnglet = document.getElementById('afpOnglet');
 let redditOnglet = document.getElementById('redditOnglet');
 let twitterOnglet = document.getElementById('twitterOnglet');
+let hugoOnglet = document.getElementById('hugoOnglet');
+let bfmOnglet = document.getElementById('bfmOnglet');
+let ukraineOnglet = document.getElementById('ukraineOnglet');
+
+let onglets = [mondeOnglet, afpOnglet, redditOnglet, twitterOnglet, hugoOnglet, bfmOnglet, ukraineOnglet];
+
 let errorOnglet = document.getElementById('errorOnglet');
 let chosenOnglet = null;
 
@@ -83,7 +89,7 @@ const initImages = () => {
         newImg.style.top = 0
         newImg.addEventListener('click', function() {
             newImg.style.pointerEvents = 'none';
-            for(let j = 0; j < 6; j++) {
+            for(let j = 0; j < 7; j++) {
                 setTimeout(function() {
                     if(j < 5) {
                         newImg.src = '../../assets/journal/journal'+(i+1)+'/journal'+(i+1)+'-0' + j + '.png';
@@ -169,27 +175,51 @@ const ongletsAnim = () => {
         scale: 1,
         ease: 'power2.inOut',
     });
+    gsap.to(hugoOnglet, {
+        duration: 1,
+        scale: 1,
+        ease: 'power2.inOut',
+        onComplete: function() {
+            hugoOnglet.children[1].children[0].play();
+        }
+    }).delay(0.5);
     gsap.to(twitterOnglet, {
         duration: 1,
         scale: 1,
         ease: 'power2.inOut',
-    }).delay(0.5);
+    }).delay(0.7);
     gsap.to(afpOnglet, {
         duration: 1,
         scale: 1,
         ease: 'power2.inOut',
-    }).delay(0.7);
+    }).delay(1.2);
     gsap.to(redditOnglet, {
         duration: 1,
         scale: 1,
         ease: 'power2.inOut',
-    }).delay(1.2);
+    }).delay(1.5);
+    gsap.to(bfmOnglet, {
+        duration: 1,
+        scale: 1,
+        ease: 'power2.inOut',
+        onComplete: function() {
+            bfmOnglet.children[1].play();
+        }
+    }).delay(1.6);
+    gsap.to(ukraineOnglet, {
+        duration: 1,
+        scale: 1,
+        ease: 'power2.inOut',
+        onComplete: function() {
+            ukraineOnglet.children[1].play();
+        }
+    }).delay(1.9);
 }
 
 const closeOnglet = (onglet) => {
     console.log("test");
     let closedElement = document.getElementById(onglet);
-    if(closedOnglets === 3) {
+    if(closedElement == hugoOnglet) {
         errorOnglet.style.display = 'block';
         let errorSound = new Audio('../../assets/ordi/macError.mp3');
         errorSound.play();
@@ -199,14 +229,40 @@ const closeOnglet = (onglet) => {
             duration: 0.7,
             scale: 0,
             ease: 'back.in(1.4)',
-        }).then(()=>{
-            closedOnglets++;
-        });
+        }).then(
+            () => {
+                closedElement.style.display = 'none';
+                onglets = onglets.filter((onglet) => onglet !== closedElement);
+                if(closedElement == bfmOnglet) {
+                    console.log(bfmOnglet.children[1]);
+                    bfmOnglet.children[1].pause();
+                } else if(closedElement == ukraineOnglet) {
+                    ukraineOnglet.children[1].pause();
+                }
+            }
+        )
     }
 }
 
 const teleTransition = () => {
     errorOnglet.style.display = 'none';
+
+    for(const element of onglets) {
+        if(element !== chosenOnglet) {
+            gsap.to(element, {
+                duration: 0.5,
+                scale: 0,
+            }).then(() => {
+                if(element == bfmOnglet) {
+                    bfmOnglet.children[1].pause();
+                } else if(element == ukraineOnglet) {
+                    ukraineOnglet.children[1].pause();
+                }
+                element.style.display = 'none';
+            });
+        }
+    }
+
     gsap.to(chosenOnglet, {
         x: window.innerWidth/2 - chosenOnglet.getBoundingClientRect().width/2,
         y: window.innerHeight/2 - chosenOnglet.children[1].getBoundingClientRect().height/2,
@@ -214,6 +270,15 @@ const teleTransition = () => {
         left: 0,
         duration: 1,
     }).then(()=>{
+
+        zappingVideo.style.display = 'block';
+        gsap.to(zappingVideo, {
+            x: window.innerWidth/2 - zappingVideo.getBoundingClientRect().width/2,
+            y: window.innerHeight/2 - zappingVideo.getBoundingClientRect().height/2,
+            duration: 0.01,
+        })
+        // zappingVideo.play();
+
         gsap.to(bin, {
             duration: 1,
             opacity: 0,
@@ -229,9 +294,16 @@ const teleTransition = () => {
             });
         }
         gsap.to(chosenOnglet.children[1], {
-            scale: 1.5,
-            y: chosenOnglet.y-25,
+            width: "1000px",
+            height: "570px",
+            yPercent: -18,
+            xPercent: -19.28,
             duration: 1,
+        });
+        gsap.to(chosenOnglet.children[1].children[0], {
+            duration: 1,
+            scale: 1.12,
+            top: "-43px",
         });
         gsap.to(ordiImage, {
             duration: 1,
@@ -240,7 +312,6 @@ const teleTransition = () => {
             bin.style.display = 'none';
             bin2.style.display = 'none';
             ordiImage.style.display = 'none';
-            
         });
     });
 }
