@@ -154,7 +154,7 @@ export function animJournaux(journaux) {
             scale: 3,
             rotate: 2,
             duration: 1.5,
-            onComplete : () => {setTimeout(createSticker('trump', journaux[7]), 1500)}
+            onComplete : () => {setTimeout(createSticker('trump', journaux[7], true, 7), 1500)}
         }
     ).delay(1.5);
     gsap.fromTo(journaux[8],
@@ -251,7 +251,7 @@ export function animJournaux(journaux) {
             scale: 1.8,
             rotate: -15,
             duration: 1,
-            onComplete : () => {setTimeout(createSticker('delon', journaux[12]), 3000)}
+            onComplete : () => {setTimeout(createSticker('delon_zorro', journaux[12], true, 12), 3000)}
         }
     ).delay(3);
     gsap.fromTo(journaux[13],

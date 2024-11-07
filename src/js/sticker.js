@@ -126,7 +126,7 @@ function followImg(ev, offsetX, offSetY, index){
     stickerWrapper.childNodes[1].style.zIndex = currentIndex - 1;
 
     gsap.to(stickerWrapper.childNodes[1], {
-        scale : 1.1,
+        scale : 1.3,
         duration : 1
     })
 
