@@ -78,7 +78,7 @@ neonLoop.volume = 0;
 
 const startAnim = () => {
     document.getElementById('introVideo').play()
-    introMusic.volume = 0.1;
+    introMusic.volume = 0.3;
     introMusic.play();
     neonLoop.play();
 

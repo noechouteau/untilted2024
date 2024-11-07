@@ -12,6 +12,7 @@ export function ongletsAnim(collageWrapper, pcWrapper, mondeOnglet, hugoOnglet, 
         ease: 'power2.inOut',
     });
     let randXyl = Math.floor(Math.random() * 7) + 1;
+    let previousRand = randXyl;
     let xylSound = new Audio('../../assets/ordi/sons/xyl' + randXyl + '.mp3');
     xylSound.volume = 0.15;
     xylSound.play();
@@ -27,6 +28,10 @@ export function ongletsAnim(collageWrapper, pcWrapper, mondeOnglet, hugoOnglet, 
     }).delay(0.5);
     setTimeout(() => {
         randXyl = Math.floor(Math.random() * 7) + 1;
+        while(randXyl == previousRand) {
+            randXyl = Math.floor(Math.random() * 7) + 1;
+        }
+        previousRand = randXyl;
         xylSound = new Audio('../../assets/ordi/sons/xyl' + randXyl + '.mp3');
         xylSound.volume = 0.15;
         xylSound.play();
@@ -41,6 +46,10 @@ export function ongletsAnim(collageWrapper, pcWrapper, mondeOnglet, hugoOnglet, 
     }).delay(0.7);
     setTimeout(() => {
         randXyl = Math.floor(Math.random() * 7) + 1;
+        while(randXyl == previousRand) {
+            randXyl = Math.floor(Math.random() * 7) + 1;
+        }
+        previousRand = randXyl;
         xylSound = new Audio('../../assets/ordi/sons/xyl' + randXyl + '.mp3');
         xylSound.volume = 0.15;
         xylSound.play();
@@ -54,6 +63,10 @@ export function ongletsAnim(collageWrapper, pcWrapper, mondeOnglet, hugoOnglet, 
     }).delay(1.2);
     setTimeout(() => {
         randXyl = Math.floor(Math.random() * 7) + 1;
+        while(randXyl == previousRand) {
+            randXyl = Math.floor(Math.random() * 7) + 1;
+        }
+        previousRand = randXyl;
         xylSound = new Audio('../../assets/ordi/sons/xyl' + randXyl + '.mp3');
         xylSound.volume = 0.15;
         xylSound.play();
@@ -67,6 +80,10 @@ export function ongletsAnim(collageWrapper, pcWrapper, mondeOnglet, hugoOnglet, 
     }).delay(1.5);
     setTimeout(() => {
         randXyl = Math.floor(Math.random() * 7) + 1;
+        while(randXyl == previousRand) {
+            randXyl = Math.floor(Math.random() * 7) + 1;
+        }
+        previousRand = randXyl;
         xylSound = new Audio('../../assets/ordi/sons/xyl' + randXyl + '.mp3');
         xylSound.volume = 0.15;
         xylSound.play();
@@ -84,6 +101,10 @@ export function ongletsAnim(collageWrapper, pcWrapper, mondeOnglet, hugoOnglet, 
     }).delay(1.6);
     setTimeout(() => {
         randXyl = Math.floor(Math.random() * 7) + 1;
+        while(randXyl == previousRand) {
+            randXyl = Math.floor(Math.random() * 7) + 1;
+        }
+        previousRand = randXyl;
         xylSound = new Audio('../../assets/ordi/sons/xyl' + randXyl + '.mp3');
         xylSound.volume = 0.15;
         xylSound.play();
@@ -101,6 +122,10 @@ export function ongletsAnim(collageWrapper, pcWrapper, mondeOnglet, hugoOnglet, 
     }).delay(1.9);
     setTimeout(() => {
         randXyl = Math.floor(Math.random() * 7) + 1;
+        while(randXyl == previousRand) {
+            randXyl = Math.floor(Math.random() * 7) + 1;
+        }
+        previousRand = randXyl;
         xylSound = new Audio('../../assets/ordi/sons/xyl' + randXyl + '.mp3');
         xylSound.volume = 0.15;
         xylSound.play();
