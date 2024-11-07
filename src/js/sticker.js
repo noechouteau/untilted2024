@@ -1,4 +1,5 @@
 let mesStickersAnimee = [];
+let mesOmbresAnimee = [];
 
 export function createSticker(ref, journal, animated, maxframe) {
     // ref : string 
@@ -20,8 +21,8 @@ export function createSticker(ref, journal, animated, maxframe) {
     newSticker.draggable = false;
     newSticker.style.position = 'absolute';
     newSticker.style.pointerEvents = 'auto';
-    newSticker.style.top =  (journalSize.top ) + "px"; 
-    newSticker.style.left = (journalSize.left ) + "px"; 
+    newSticker.style.top =  (journalSize.top + (journalSize.height/4)) + "px" ; 
+    newSticker.style.left = (journalSize.left + (journalSize.width/4)) + "px"; 
     newSticker.style.zIndex = 11;
 
     if(animated){
@@ -39,11 +40,12 @@ export function createSticker(ref, journal, animated, maxframe) {
     newStickerOmbre.style.position = 'absolute';
     newStickerOmbre.style.pointerEvents = 'auto';
     newStickerOmbre.style.zIndex = 10;
-    newStickerOmbre.style.top =  (journalSize.top ) + "px"; 
-    newStickerOmbre.style.left = (journalSize.left ) + "px"; 
+    newStickerOmbre.style.top =  (journalSize.top + (journalSize.height/4)) + "px" ; 
+    newStickerOmbre.style.left = (journalSize.left + (journalSize.width/4)) + "px"; 
 
     if(animated){ 
         newStickerOmbre.src = '../assets/stickers/' + ref + "/ombre.png";
+        mesOmbresAnimee.push(newStickerOmbre);
     }else{
         newStickerOmbre.src =  '../assets/stickers/' + ref + "_ombre.png";
     }
@@ -136,6 +138,7 @@ function animationSticker(){
     frame = frame + 1;
 
     if(frame%10 == 0){
+        /*
         for(let sticker of mesStickersAnimee){
             if(sticker.currentFrame < sticker.maxFrame){
                 sticker.currentFrame =  sticker.currentFrame + 1;
@@ -143,6 +146,16 @@ function animationSticker(){
                 sticker.currentFrame = 1;
             }
             sticker.src = '../assets/stickers/' + sticker.refName + "/" + sticker.currentFrame  + ".png";
+        }
+        */
+        for(let i = 0; i < mesStickersAnimee.length; i++){
+            if(mesStickersAnimee[i].currentFrame < mesStickersAnimee[i].maxFrame){
+                mesStickersAnimee[i].currentFrame =  mesStickersAnimee[i].currentFrame + 1;
+            }else{
+                mesStickersAnimee[i].currentFrame = 1;
+            }
+            mesStickersAnimee[i].src = '../assets/stickers/' + mesStickersAnimee[i].refName + "/" + mesStickersAnimee[i].currentFrame  + ".png";
+            mesOmbresAnimee[i].src = '../assets/stickers/' + mesStickersAnimee[i].refName + "/" + mesStickersAnimee[i].currentFrame  + "_ombres.png";
         }
     }
     
