@@ -1,5 +1,6 @@
 let mesStickersAnimee = [];
 let mesOmbresAnimee = [];
+let currentIndex = 10;
 
 export function createSticker(ref, journal, animated, maxframe) {
     // ref : string 
@@ -23,7 +24,7 @@ export function createSticker(ref, journal, animated, maxframe) {
     newSticker.style.pointerEvents = 'auto';
     newSticker.style.top =  (journalSize.top + (journalSize.height/4)) + "px" ; 
     newSticker.style.left = (journalSize.left + (journalSize.width/4)) + "px"; 
-    newSticker.style.zIndex = 11;
+    newSticker.style.zIndex = currentIndex + 2;
 
     if(animated){
         newSticker.src = '../assets/stickers/' + ref + "/1.png";
@@ -39,7 +40,7 @@ export function createSticker(ref, journal, animated, maxframe) {
     newStickerOmbre.draggable = false;
     newStickerOmbre.style.position = 'absolute';
     newStickerOmbre.style.pointerEvents = 'auto';
-    newStickerOmbre.style.zIndex = 10;
+    newStickerOmbre.style.zIndex = currentIndex + 1;
     newStickerOmbre.style.top =  (journalSize.top + (journalSize.height/4)) + "px" ; 
     newStickerOmbre.style.left = (journalSize.left + (journalSize.width/4)) + "px"; 
 
@@ -94,14 +95,14 @@ export function createStickerCustomPos(ref, posX, posY, animated, maxframe) {
     newSticker.draggable = false;
    // newSticker.style.position = 'absolute';
   //  newSticker.style.pointerEvents = 'auto';
-    newSticker.zIndex = 10;
+    
 
     newSticker.draggable = false;
     newSticker.style.position = 'absolute';
     newSticker.style.pointerEvents = 'auto';
     newSticker.style.top =  posY + "px" ; 
     newSticker.style.left = posX + "px"; 
-    newSticker.style.zIndex = 11;
+    newSticker.style.zIndex = currentIndex + 2;
 
     if(animated){
         newSticker.src = '../assets/stickers/' + ref + "/1.png";
@@ -117,7 +118,7 @@ export function createStickerCustomPos(ref, posX, posY, animated, maxframe) {
     newStickerOmbre.draggable = false;
     newStickerOmbre.style.position = 'absolute';
     newStickerOmbre.style.pointerEvents = 'auto';
-    newStickerOmbre.style.zIndex = 10;
+    newStickerOmbre.style.zIndex = currentIndex + 1;
     newStickerOmbre.style.top =  posY + "px" ; 
     newStickerOmbre.style.left = posX + "px"; 
 
@@ -187,7 +188,7 @@ function updateSticker(){
     }); 
   
 }
-let currentIndex = 10;
+
 
 function followImg(ev, offsetX, offSetY, index){
     currentIndex = currentIndex + 2;
