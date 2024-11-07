@@ -1,3 +1,5 @@
+import { createSticker } from "./sticker.js";
+
 export function ongletsAnim(collageWrapper, pcWrapper, mondeOnglet, hugoOnglet, twitterOnglet, afpOnglet, redditOnglet, bfmOnglet, ukraineOnglet) { 
     collageWrapper.style.pointerEvents = 'none';
     pcWrapper.style.pointerEvents = 'auto';
@@ -35,6 +37,7 @@ export function ongletsAnim(collageWrapper, pcWrapper, mondeOnglet, hugoOnglet, 
         duration: 1,
         scale: 1,
         ease: 'power2.inOut',
+        onComplete : () => {setTimeout(createSticker('robot', twitterOnglet, true, 7), 700)}
     }).delay(0.7);
     setTimeout(() => {
         randXyl = Math.floor(Math.random() * 7) + 1;
@@ -76,6 +79,7 @@ export function ongletsAnim(collageWrapper, pcWrapper, mondeOnglet, hugoOnglet, 
         ease: 'power2.inOut',
         onComplete: function() {
             bfmOnglet.children[1].play();
+            createSticker('plouf', bfmOnglet, true, 11);
         }
     }).delay(1.6);
     setTimeout(() => {
@@ -92,6 +96,7 @@ export function ongletsAnim(collageWrapper, pcWrapper, mondeOnglet, hugoOnglet, 
         ease: 'power2.inOut',
         onComplete: function() {
             ukraineOnglet.children[1].play();
+            createSticker('missile', ukraineOnglet, true, 11);
         }
     }).delay(1.9);
     setTimeout(() => {

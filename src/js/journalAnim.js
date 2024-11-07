@@ -23,7 +23,8 @@ export function animJournaux(journaux) {
             y: window.innerHeight/5 - journaux[0].height/2,
             scale: 4.4,
             rotate: 25,
-            duration: 1
+            duration: 1,
+            onComplete : () => {setTimeout(createSticker('NFP', journaux[0], true, 9), 500)}
         }
     );
     journalSon.play();
@@ -303,7 +304,7 @@ export function animJournaux(journaux) {
             scale: 3.6,
             rotate: 15,
             duration: 1.5,
-            onComplete : () => {setTimeout(createSticker('jo', journaux[11]), 2700)}
+            onComplete : () => {setTimeout(createSticker('leon', journaux[11], true, 10), 2700)}
         }
     ).delay(2.7);
     setTimeout(() => {

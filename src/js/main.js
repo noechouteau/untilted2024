@@ -1,5 +1,6 @@
 import { animJournaux } from "./journalAnim.js";
 import { ongletsAnim } from "./ordiAnim.js";
+import { createSticker, createStickerCustomPos } from "./sticker.js";
 import { teleTransition } from "./teleTransitionAnim.js";
 
 let collageWrapper = document.getElementById('collage-wrapper');
@@ -235,6 +236,11 @@ const closeOnglet = (onglet) => {
 
 const callTeleTransition = () => {
     teleTransition(onglets, chosenOnglet, bin, bin2, journaux, ordiImage, zappingVideo, powerButton );
+    setTimeout(() =>(createSticker('taiwan', zappingVideo, true, 5 )),500)
+    setTimeout(() =>(createStickerCustomPos('boxe', (window.innerWidth / 100) * 70, (window.innerHeight / 100) * 50, true, 16)),16000)
+    setTimeout(() =>(createSticker('kamala_griffon', zappingVideo, true, 6)),22000)
+    setTimeout(() =>(createStickerCustomPos('valence', (window.innerWidth / 100) * 40, (window.innerHeight / 100) * 70, true, 9)),24000)
+
 }
 
 window.startAnim = startAnim;
