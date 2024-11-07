@@ -11,7 +11,7 @@ export function ongletsAnim(collageWrapper, pcWrapper, mondeOnglet, hugoOnglet, 
     });
     let randXyl = Math.floor(Math.random() * 7) + 1;
     let xylSound = new Audio('../../assets/ordi/sons/xyl' + randXyl + '.mp3');
-    xylSound.volume = 0.3;
+    xylSound.volume = 0.15;
     xylSound.play();
 
     // Animation et son pour hugoOnglet
@@ -26,7 +26,7 @@ export function ongletsAnim(collageWrapper, pcWrapper, mondeOnglet, hugoOnglet, 
     setTimeout(() => {
         randXyl = Math.floor(Math.random() * 7) + 1;
         xylSound = new Audio('../../assets/ordi/sons/xyl' + randXyl + '.mp3');
-        xylSound.volume = 0.3;
+        xylSound.volume = 0.15;
         xylSound.play();
     }, 500); // 0.5 seconde de délai
 
@@ -39,7 +39,7 @@ export function ongletsAnim(collageWrapper, pcWrapper, mondeOnglet, hugoOnglet, 
     setTimeout(() => {
         randXyl = Math.floor(Math.random() * 7) + 1;
         xylSound = new Audio('../../assets/ordi/sons/xyl' + randXyl + '.mp3');
-        xylSound.volume = 0.3;
+        xylSound.volume = 0.15;
         xylSound.play();
     }, 700); // 0.7 seconde de délai
 
@@ -52,7 +52,7 @@ export function ongletsAnim(collageWrapper, pcWrapper, mondeOnglet, hugoOnglet, 
     setTimeout(() => {
         randXyl = Math.floor(Math.random() * 7) + 1;
         xylSound = new Audio('../../assets/ordi/sons/xyl' + randXyl + '.mp3');
-        xylSound.volume = 0.3;
+        xylSound.volume = 0.15;
         xylSound.play();
     }, 1200); // 1.2 secondes de délai
 
@@ -65,7 +65,7 @@ export function ongletsAnim(collageWrapper, pcWrapper, mondeOnglet, hugoOnglet, 
     setTimeout(() => {
         randXyl = Math.floor(Math.random() * 7) + 1;
         xylSound = new Audio('../../assets/ordi/sons/xyl' + randXyl + '.mp3');
-        xylSound.volume = 0.3;
+        xylSound.volume = 0.15;
         xylSound.play();
     }, 1500); // 1.5 secondes de délai
 
@@ -81,7 +81,7 @@ export function ongletsAnim(collageWrapper, pcWrapper, mondeOnglet, hugoOnglet, 
     setTimeout(() => {
         randXyl = Math.floor(Math.random() * 7) + 1;
         xylSound = new Audio('../../assets/ordi/sons/xyl' + randXyl + '.mp3');
-        xylSound.volume = 0.3;
+        xylSound.volume = 0.15;
         xylSound.play();
     }, 1600); // 1.6 secondes de délai
 
@@ -97,6 +97,7 @@ export function ongletsAnim(collageWrapper, pcWrapper, mondeOnglet, hugoOnglet, 
     setTimeout(() => {
         randXyl = Math.floor(Math.random() * 7) + 1;
         xylSound = new Audio('../../assets/ordi/sons/xyl' + randXyl + '.mp3');
+        xylSound.volume = 0.15;
         xylSound.play();
     }, 1900); // 1.9 secondes de délai
 

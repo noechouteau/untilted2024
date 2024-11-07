@@ -75,7 +75,7 @@ export function teleTransition( onglets, chosenOnglet, bin, bin2, journaux, ordi
                 chosenOnglet.children[1].children[0].onended = function() {
                     chosenOnglet.style.display = 'none';
                     zappingVideo.play();
-                    zappingVideo.volume = 0.7;
+                    zappingVideo.volume = 0.5;
                     zappingVideo.onended = function() {
                         zappingVideo.currentTime = 13.75;
                         zappingVideo.play();
