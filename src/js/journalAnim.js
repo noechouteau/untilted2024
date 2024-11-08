@@ -24,7 +24,7 @@ export function animJournaux(journaux) {
             scale: 4.4,
             rotate: 25,
             duration: 1,
-            onComplete : () => {setTimeout(createSticker('NFP', journaux[0], true, 9), 500)}
+            onComplete : () => {setTimeout(createSticker('nfp', journaux[0], true, 9), 500)}
         }
     );
     journalSon.play();
