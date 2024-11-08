@@ -83,7 +83,15 @@ export function teleTransition( onglets, chosenOnglet, bin, bin2, journaux, ordi
                         gsap.to(powerButton, {
                             duration: 1,
                             opacity: 1,
+                        }).then(()=>{
+                            gsap.to(powerButton, {
+                                scale: 7.5,
+                                duration: 10,
+                                ease: "power2.in",
+                            }
+                            )
                         });
+                        
 
                     }
                 }

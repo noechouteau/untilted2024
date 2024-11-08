@@ -216,7 +216,11 @@ export function fadeSticker(){
     for(let i = 0; i < mesStickersAnimee.length; i++){
         gsap.to(mesStickersAnimee[i], {
             opacity : 0,
-            duration : 1
+            duration : 1,
+            onComplete : () => {
+                mesStickersAnimee[i].remove();
+                mesOmbresAnimee[i].remove();
+            }
         })
         gsap.to(mesOmbresAnimee[i], {
             opacity : 0,

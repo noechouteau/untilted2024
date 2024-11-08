@@ -16,14 +16,14 @@ body {
   background-color: #1c1c1c;
 }
 
-#introVideo, #introLoop {
+#introVideo, #introLoop, #finaleVideo {
     width: 100vw;
     height: 100vh;
     object-fit: cover;
     object-position: center;
 }
 
-#introLoop, #ordiImage {
+#introLoop, #ordiImage, #finaleVideo {
     display: none;
     position:absolute;
     z-index: 0;

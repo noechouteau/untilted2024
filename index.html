@@ -12,6 +12,7 @@
     <video id="introLoop" src="./assets/intro/introLoop.mp4" autoplay muted loop></video>
     <img id="ordiImage" src="./assets/ordi/desktopmac.png" alt="ordi">
     <video id="zappingVideo" src="./assets/tele/zapping.mp4" ></video>
+    <video id="finaleVideo" src="./assets/finale/Anim Finale.mp4" ></video>
 
     <div id="stickers-wrapper" style="z-index: 100; position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none;">
     </div>
@@ -144,7 +145,7 @@
 
         <label class="container" id="powerButton">
             <input type="checkbox" />
-            <div class="checkmark">
+            <div class="checkmark" onclick="powerOff()">
               <svg
                 version="1.1"
                 id="Capa_1"

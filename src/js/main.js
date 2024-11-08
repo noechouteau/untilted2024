@@ -1,6 +1,6 @@
 import { animJournaux } from "./journalAnim.js";
 import { ongletsAnim } from "./ordiAnim.js";
-import { createSticker, createStickerCustomPos } from "./sticker.js";
+import { createSticker, createStickerCustomPos, fadeSticker } from "./sticker.js";
 import { teleTransition } from "./teleTransitionAnim.js";
 
 let collageWrapper = document.getElementById('collage-wrapper');
@@ -10,6 +10,8 @@ let introVideo = document.getElementById('introVideo');
 let introLoop = document.getElementById('introLoop');
 let zappingVideo = document.getElementById('zappingVideo');
 let ordiImage = document.getElementById('ordiImage');
+let finaleVideo = document.getElementById('finaleVideo');
+
 let bin = document.getElementById('bin');
 let bin2 = document.getElementById('bin2');
 
@@ -211,8 +213,7 @@ const closeOnglet = (onglet) => {
         errorSound.play();
         chosenOnglet = closedElement;
     } else {
-        let randClose = Math.floor(Math.random() * 2) + 1;
-        let closeSound = new Audio('../../assets/ordi/sons/close'+randClose+'.mp3');
+        let closeSound = new Audio('../../assets/ordi/sons/close1.mp3');
         closeSound.volume = 0.3;
         closeSound.play();
         gsap.to(closedElement, {
@@ -243,6 +244,19 @@ const callTeleTransition = () => {
 
 }
 
+const powerOff = () => {
+    zappingVideo.pause();
+    zappingVideo.style.display = 'none';
+    fadeSticker()
+    finaleVideo.style.display = 'block';
+    powerButton.style.display = 'none';
+    finaleVideo.volume = 0.7;
+    finaleVideo.play();
+
+
+}
+
 window.startAnim = startAnim;
 window.closeOnglet = closeOnglet;
 window.callTeleTransition = callTeleTransition;
+window.powerOff = powerOff;
